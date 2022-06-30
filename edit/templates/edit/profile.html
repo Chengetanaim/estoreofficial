@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+
+{% block conntent %}
+    <form action="{% url 'edit:profile' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Save Changes</button>
+    </form>
+{% endblock conntent %}
+
+</body>
+</html>

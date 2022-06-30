@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    
+    <title>SquareMarket</title>
+       
+</head>
+<body>
+    <header class="H1">
+        <image class="logo" src="images/main-logo.png"></image>
+
+        <div class="search-nav-bar">
+            <input type="text" placeholder="Search...">
+            <a href=""><i class="fas fa-search"></i></a>
+        </div>
+
+        <div class="nav-tab">
+            <div class="sml-search">
+                <a href="search.html"><i class="fas fa-search"></i></a>
+            </div>
+        <div class="user"onclick="window.location.href='profilepage.html';">
+            <img src="images/streetwear.jpg" alt="">
+        </div>
+        </div>
+
+        <div class="sml-nav">
+            <div class="sml-search">
+                <a href="search.html"><i class="fas fa-search"></i></a>
+            </div>
+
+            <div class="sml-nav-2">
+
+                <button class="mobile-toggle" 
+                aria-controls="pry-nav" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+            </button>
+
+                <nav>
+                    <ul id="pry-nav" data-visible="false" class="pry-nav">
+                        <div class="profile-acc">
+                            <img src="images/streetwear.jpg" alt="">
+                            <div class="profile-acc-details">
+                                <h2><span><i class="fas fa-user"></i></span>KingPin</h2>
+                                <a href="profilepage.html">My Dashboard</a>
+                            </div>
+                        </div>
+                        <li><a href="index.html"><span><i class="fas fa-home"></i></span> Home</a></li>
+                        <li><a href="AboutUs.html"><span><i class="fas fa-users"></i></span> About Us</a></li>
+                        <li><a href="Stores.html"><span><i class="fas fa-store"></i></span> E Stores</a></li>
+                        <li><a href="Deals.html"><span> <i class="fas fa-percent"></i></span> Hot Deals</a></li>
+                        <li><a href="Notifications.html"><span><i class="far fa-bell"></i></span> Notifications</a></li>
+                        <li><a href="MyAccount.html"><span> <i class="fas fa-sign-out-alt"></i></span> Log Out</a></li>
+                    </ul>
+                </nav>
+            </div> 
+        </div>
+
+    </header>
+
+
+    
+    <section class="container-details">
+        <div class="vendor">
+            <img src="images/WallpaperDog-10802556.jpg" alt="">
+            <h2>Mr Raptor</h2>
+            <div class="location S1">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Harare</h3>
+            </div>
+            <div class="location contact-S">
+                <i class="fab fa-whatsapp"></i>
+                <h3>+263 778 346 815</h3>
+            </div>
+            <div class="location contact-S">
+                <i class="fas fa-phone-alt"></i>
+                <h3>+263 713 234 647</h3>
+            </div>
+        </div>
+
+        <div class="store-back">
+            <h1>Raptor Electronics</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut fuga dolore similique delectus deserunt earum.</p>
+
+            <div class="following">
+                <h3><span><i class="fas fa-users"></i></span>100 followers</h3>
+                <input type="submit" value="Follow" class="btn-login">
+            </div>
+        </div>
+    </section>
+
+    <section class="mobile-contact">
+        <div class="vendor-contact">
+            <div class="vendor-mob-pic">
+                <img src="images/WallpaperDog-10802556.jpg" alt="">
+            </div>
+            
+            <div class="vendor-mob-contact">
+                <h2>Mr Raptor</h2>
+                <h3><span><i class="fas fa-map-marker-alt"></i></span>Harare</h3>
+                <h3><span><i class="fab fa-whatsapp"></i></span>+263 778 346 815</h3>
+                <h3><span><i class="fas fa-phone-alt"></i></span>+263 713 234 647</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="line Store-line">
+        <hr style="width:20%; border-radius: 8px; height:5px; background-color:#008dff; margin-left: auto; margin-right: auto; color: #008dff;">
+    </section>
+
+    <section class="cat-menu">
+        <nav>
+            <label for="btwn" class="btn-D">Select Category
+            <span class="fas fa-caret-down"></span>
+        </label>
+        <input class="tick" type = "checkbox" id="btwn">
+         <ul class="menu-bar">
+          
+            <li>
+                <label for="btwn-2" class="second-menu">Electronics
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                <input class="tick" type = "checkbox" id="btwn-2">
+               
+                <ul>
+                    <li><a href="#">Phones and Tablets</a></li>
+                    <li><a href="#">Watches</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </li>
+           
+         </ul>    
+        </nav>
+        
+    </section>
+
+    <section id="product1" class="featured">
+        <div class="pro-container">
+            <div class="pro">
+                <img src="images/centiwatch.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>Apple Watch</h3>
+                        <h2>$55</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="pro"onclick="window.location.href='sproduct.html';">
+                <img src="images/ipad1.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>Ipad Pro 11</h3>
+                        <h2>$850</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/ad3.jpeg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>Timex Watch</h3>
+                        <h2>$28</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/padpro.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>iPad 12.9</h3>
+                        <h2>$900</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/tabt6.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>Samsung Tab S6</h3>
+                        <h2>$250</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/tabT61.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>Samsung Tab S6 Pro</h3>
+                        <h2>$300</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/iphoneXR.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>iPhone XR</h3>
+                        <h2>$380</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/iphone11.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>iPhone 11</h3>
+                        <h2>$450</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/podswatch.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>Apple iSet</h3>
+                        <h2>$140</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/ps4.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>PS4 Pro</h3>
+                        <h2>$350</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/ipads4.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>iPad 12</h3>
+                        <h2>$870</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/ipads1.jpg" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <h3>iPad 11</h3>
+                        <h2>$800</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="featured foot-det">
+        <div class="col">
+            <img class="logor" src="images/Logo2.png" alt="">
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="AboutUs.html">About Us</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="MyAccount.html">Sign In</a>
+            <a href="wishlist.html">My Wishlist</a>
+            <a href="AboutUs.html">Help</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>Coming soon</p>
+            <div class="row app">
+                <!-- This is the buttons for downoloading our app-->
+                <img src="images/undraw_under_construction_-46-pa.svg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row pay">
+                <!-- Payment gateways i.e Ecocash -->
+               <ul>
+                   <li>Ecocash</li>
+                   <li>VISA Mastercard</li>
+                   <li>Direct Bank Transfer</li>
+               </ul>
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @Warehouse. All rights reserved.</p>
+        </section>
+        
+    </footer>
+<script src="main2.js"></script>
+</body>
+</html>

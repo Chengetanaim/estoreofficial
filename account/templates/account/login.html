@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+
+{% block conntent %}
+<header class="H1">
+        <image class="logo" src="{% static '/media/main-logo.png' %}"></image>
+        <div class="search-nav-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        {% if request.user.is_authenticated %}
+
+            <div class="nav-tab">
+                <div class="sml-search">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="user"onclick="window.location.href='{% url 'account:profile' %}';">
+                    <img src="{{ request.user.profile_pic.url }}" alt="">
+                </div>
+             </div>
+
+            <div class="sml-nav">
+                <div class="sml-search">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+
+                <div class="sml-nav-2">
+
+                    <button class="mobile-toggle"
+                        aria-controls="pry-nav" aria-expanded="false">
+                        <span class="sr-only">Menu</span>
+                    </button>
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'account:login' %}" class="btn">Sign In</a>
+        {% endif %}
+
+
+    </header>
+
+     <header class="H2-container">
+        <nav class="nav-bar-bar">
+            <ul>
+                <li><a href="{% url 'store_information:index' %}">Home</a></li>
+                 <li><a href="{% url 'store_information:about_us' %}">About Us</a></li>
+                <li><a href="{% url 'store_information:gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'store_information:estores' %}">E Store</a></li>
+                <li><a href="{% url 'store_information:hotdeals' %}">Hot Deals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+<script src="{% static '/js/main.js' %}"></script>
+
+
+
+
+
+<section class="login">
+    <div class="signup">
+        <div class="forms-signup">
+            <div class="signin">
+                <form method="post" class="sign-in-form">
+                    {% csrf_token %}
+                    <h2 class="title">Welcome</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="email" placeholder="Email" autofocus>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+
+                     {% for field in login_form %}
+                        {% for error in field.errors %}
+                            <h8>{{ error }}</h8>
+                        {% endfor %}
+                    {% endfor %}
+
+
+
+                    {% if login_form.non_field_errors %}
+                        {{ login_form.non_field_errors }}
+                    {% endif %}
+                    <input type="submit" value="login" class="btn-login">
+
+                    <p class="social">Follow Us On Our Social Platforms</p>
+                    <div class="icon-icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <p class="account-text">Don't have an account? <a href="{% url 'account:register' %}" class="" id="sign-up-btn2">Sign Up</a></p>
+                    <div class="account-text">
+                        <img src="{% static 'media/undraw_access_account_re_8spm.svg' %}" alt="">
+                    </div>
+                </form>
+
+                <form action="" class="sign-up-form">
+                    <h2 class="title">Create Account</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="text" placeholder="Phone#">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fab fa-whatsapp"></i>
+                        <input type="text" placeholder="WhatsApp#">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Location">
+                    </div>
+
+                    <div class="conditions">
+                        <input type="checkbox" class="checkbox" id="terms and conditions">
+                    <label for="terms and conditions">Agree to our <a href="#">Terms and Conditions</a></label>
+                    </div>
+
+                    <input type="submit" value="register" class="btn-login">
+
+                    <p class="social">Follow Us On Our Social Platforms</p>
+                    <div class="icon-icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <p class="account-text">Already have an account? <a href="#" class="" id="sign-in-btn2">Sign In</a></p>
+                    <div class="account-text up">
+                        <img src="{% static 'media/undraw_my_app_re_gxtj.svg' %}" alt="">
+                    </div>
+                </form>
+            </div>
+            <div class="panels-signup">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h2>Already a member?</h2>
+                        <p>If you have an account already then just click on sign in and input your details to access your account.</p>
+                        <button class="btn-L" id="sign-in-btn">Sign In</button>
+                    </div>
+                    <img src="{% static 'media/undraw_control_panel_re_y3ar.svg' %}" alt="" class="img-svg">
+                </div>
+
+                <div class="panel right-panel">
+                    <div class="content">
+                        <h2>Are you new?</h2>
+                        <p>If you are new to this platform, then just click on sign up and input your details to create an your account in order to access some of our features and get updated on the latest, best deals.Become a part of the Warehouse family</p>
+                        <button class="btn-L" id="sign-up-btn" onclick="window.location.href='{% url 'account:register' %}';">Sign Up</button>
+                    </div>
+                    <img src="{% static 'media/undraw_my_notifications_re_ehmk.svg' %}" alt="" class="img-svg">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    </section>
+
+
+
+    <script src="{% static 'js/main2.js' %}"></script>
+    <footer class="featured foot-det">
+        <div class="col">
+            <img class="logor" src="{% static '/media/main-logo.png' %}" alt="">
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="{% url 'store_information:about_us' %}">About Us</a>
+            <a href="{% url 'store_information:terms_conditions' %}">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="{% url 'account:login' %}">Sign In</a>
+            <a href="#">My Wishlist</a>
+            <a href="{% url 'store_information:about_us' %}">Help</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>Coming soon</p>
+            <div class="row app">
+                <!-- This is the buttons for downoloading our app-->
+                <img src="{% static 'media/undraw_under_construction_-46-pa.svg' %}" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row pay">
+                <!-- Payment gateways i.e Ecocash -->
+               <ul>
+                   <li>Ecocash</li>
+                   <li>VISA Mastercard</li>
+                   <li>Direct Bank Transfer</li>
+               </ul>
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @Warehouse. All rights reserved.</p>
+        </section>
+
+    </footer>
+{% endblock conntent %}
+
+</body>
+</html>

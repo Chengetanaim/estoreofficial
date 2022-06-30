@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+</head>
+<body>
+
+<a href="{% url 'account:register' %}">Register</a> |
+<a href="{% url 'account:login' %}">Login</a> |
+<a href="{% url 'store_information:gallery' %}">Gallery</a> |
+
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+
+<section class="logoRS">
+    <img class="logoR" src="{% static 'media/main-logo.png' %}" alt="">
+</section>
+
+<section class="search-here">
+    <div class="search-here-tag">
+        <h1>Search Here</h1>
+    <p>We are here to help you search for any product</p>
+    </div>
+
+    <div class="search-field">
+        <form action="{% url 'search_results' %}" method="get">
+                <input name="q" type="text" placeholder="Search...">
+        </form>
+        <a href=""><i class="fas fa-search"></i></a>
+    </div>
+</section>
+
+<div class="search-pic">
+    <img src="{% static 'media/undraw_location_search_re_ttoj.svg' %}" alt="">
+</div>
+
+
+</body>
+</html>

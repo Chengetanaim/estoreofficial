@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Item on estore</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+
+
+
+
+{% block conntent %}
+
+    <section class="logoRS">
+        <img class="logoR" src="{% static 'media/main-logo.png' %}" alt="">
+    </section>
+
+    <div class="headline-H">
+        <h1>Upload item on Estore</h1>
+        <p>Your post is uploaded on the your estore account, whereby the post lasts forever</p>
+    </div>
+
+
+    <section class="conditions">
+        <div class="condition">
+            <div class="savage">
+                <form method="post" action="{% url 'store_information:item_estore' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+
+                    <button class="btn-login" type="submit">Post</button>
+                </form>
+                </div>
+
+                <div class="L">
+
+        </div>
+
+        </div>
+    </section>
+
+
+
+    <footer class="featured foot-det">
+        <div class="col">
+            <img class="logor" src="{% static 'media/main-logo.png' %}" alt="">
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="{% url 'store_information:about_us' %}">About Us</a>
+            <a href="{% url 'store_information:terms_conditions' %}">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="{% url 'account:profile' %}">Sign In</a>
+            <a href="{% url 'store_information:wishlist' %}">My Wishlist</a>
+            <a href="{% url 'store_information:about_us' %}">Help</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>Coming soon</p>
+            <div class="row app">
+                <!-- This is the buttons for downoloading our app-->
+                <img src="{% static 'media/undraw_under_construction_-46-pa.svg' %}" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row pay">
+                <!-- Payment gateways i.e Ecocash -->
+               <ul>
+                   <li>Ecocash</li>
+                   <li>VISA Mastercard</li>
+                   <li>Direct Bank Transfer</li>
+               </ul>
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @SquareMarket. All rights reserved.</p>
+        </section>
+
+    </footer>
+
+{% endblock conntent %}
+
+
+<script src="{% static 'js/main2.js' %}"></script>
+</body>
+</html>

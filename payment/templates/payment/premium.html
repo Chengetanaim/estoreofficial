@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premium</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+{% block conntent %}
+    <header class="H1">
+
+             <image class="logo" src="{% static '/media/main-logo.png' %}"></image>
+            <div class="search-nav-bar">
+                    <form action="{% url 'search_results' %}" method="get">
+                        <input name="q" type="text" placeholder="Search...">
+                    </form>
+            </div>
+
+
+
+
+
+        {% if request.user.is_authenticated %}
+            <div class="nav-tab">
+                <div class="sml-search">
+                    <a href="{% url 'mobile' %}"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="user"onclick="window.location.href='{% url 'account:profile' %}';">
+                    <img src="{{ request.user.profile_pic.url }}" alt="">
+                </div>
+             </div>
+            <div class="sml-nav">
+                <div class="sml-search">
+                    <a href="{% url 'mobile' %}"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="sml-nav-2">
+                    <button class="mobile-toggle"
+                        aria-controls="pry-nav" aria-expanded="false">
+                        <span class="sr-only">Menu</span>
+                    </button>
+                     <nav>
+                        <ul id="pry-nav" data-visible="false" class="pry-nav">
+                            <div class="profile-acc">
+                                <img src="{{ request.user.profile_pic.url }}" alt="">
+                                <div class="profile-acc-details">
+                                    <h2><span><i class="fas fa-user"></i></span>{{ request.user.username }}</h2>
+                                    <a href="{% url 'account:profile' %}">My Dashboard</a>
+                                </div>
+                            </div>
+                            <li><a href="{% url 'store_information:index' %}"><span><i class="fas fa-home"></i></span> Home</a></li>
+                            <li><a href="{% url 'store_information:gallery' %}"><span><i class="fas fa-image"></i></span> Gallery</a></li>
+                            <li><a href="{% url 'store_information:about_us' %}"><span><i class="fas fa-users"></i></span> About Us</a></li>
+                            <li><a href="{% url 'store_information:estores' %}"><span><i class="fas fa-store"></i></span> E Stores</a></li>
+                            <li><a href="{% url 'store_information:hotdeals' %}"><span> <i class="fas fa-percent"></i></span> Hot Deals</a></li>
+                            <li><a href="{% url 'account:logout' %}"><span> <i class="fas fa-sign-out-alt"></i></span> Log Out</a></li>
+                         </ul>
+                    </nav>
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'account:login' %}" class="btn">Sign In</a>
+        {% endif %}
+    </header>
+
+    <header class="H2-container">
+
+        <nav class="nav-bar-bar">
+
+            <ul>
+
+                <li><a href="{% url 'store_information:index' %}">Home</a></li>
+                <li><a href="{% url 'store_information:about_us' %}">About Us</a></li>
+                <li><a href="{% url 'store_information:gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'store_information:estores' %}">E Store</a></li>
+                <li><a href="{% url 'store_information:hotdeals' %}">Hot Deals</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <br>
+
+    <div class="headline-H">
+       <a href='https://www.paynow.co.zw/Payment/Link/?q=c2VhcmNoPW11a2FuaGFpcmljJTQwZ21haWwuY29tJmFtb3VudD0wLjAwJnJlZmVyZW5jZT0mbD0w' target='_blank'><img src='https://www.paynow.co.zw/Content/Buttons/Medium_buttons/button_pay-now_medium.png' style='border:0' /></a>
+        <br><br>
+       <p>Proceed to pay.</p>
+    </div>
+{% endblock conntent %}
+</body>
+</html>

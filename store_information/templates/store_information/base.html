@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/apply.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/brands.css' %}">
+    <link rel="stylesheet" href="{% static 'css/brands.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/regular.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/regular.css' %}">
+    <link rel="stylesheet" href="{% static 'css/solid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/solid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/svg-with-js.css' %}">
+     <link rel="stylesheet" href="{% static 'css/svg-with-js.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/v4-font-face.css' %}">
+    <link rel="stylesheet" href="{% static 'css/v4-font-face.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/v4-shims.css' %}">
+    <link rel="stylesheet" href="{% static 'css/v4-shims.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/v5-font-face.css' %}">
+    <link rel="stylesheet" href="{% static 'css/v5-font-face.min.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://kit.fontawesome.com/e81d17d39f.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      let user = '{{ request.user }}'
+
+      function getToken(name) {
+          let cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+              let cookies = document.cookie.split(';');
+              for (let i = 0; i < cookies.length; i++) {
+                  let cookie = cookies[i].trim();
+                  // Does this cookie string begin with the name we want?
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+      }
+
+      const csrftoken = getToken('csrftoken');
+
+    </script>
+</head>
+<body>
+
+
+{% block conntent %}
+{% endblock conntent %}
+<script src="{% static 'js/main2.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script src="{% static '/js/addToWishlist.js' %}"></script>
+</body>
+</html>

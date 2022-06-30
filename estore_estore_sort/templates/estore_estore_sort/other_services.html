@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Other Services</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+{% block conntent %}
+
+
+    <header class="H1">
+        <image class="logo" src="{% static '/media/main-logo.png' %}"></image>
+        <form action="{% url 'product_store_search_results' %}" method="get">
+            <div class="search-nav-bar">
+
+                    <input name="q" type="text" placeholder="Search...">
+
+            </div>
+         </form>
+
+
+
+
+
+         {% if request.user.is_authenticated %}
+
+            <div class="nav-tab">
+                <div class="sml-search">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="user"onclick="window.location.href='{% url 'account:profile' %}';">
+                    <img src="{{ request.user.profile_pic.url }}" alt="">
+                </div>
+             </div>
+
+            <div class="sml-nav">
+                <div class="sml-search">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+
+                <div class="sml-nav-2">
+
+                    <button class="mobile-toggle"
+                        aria-controls="pry-nav" aria-expanded="false">
+                        <span class="sr-only">Menu</span>
+                    </button>
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'account:login' %}" class="btn">Sign In</a>
+        {% endif %}
+
+    </header>
+
+
+
+    <section class="container-details">
+        <div class="vendor">
+            <img src="{{ estores_estore.owner.profile_pic.url }}" alt="">
+            <h2>{{ estores_estore.owner.username }}</h2>
+            <div class="location S1">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>{{ estores_estore.owner.location }}</h3>
+            </div>
+            <div class="location contact-S">
+                <i class="fab fa-whatsapp"></i>
+                <h3><a href="https://wa.me/263{{ estores_estore.owner.phone_number }}" target='_blank'>{{ estores_estore.owner.phone_number }}</a></h3>
+            </div>
+
+        </div>
+
+        <div class="store-back">
+            <h1>{{ estores_estore.store_name }}</h1>
+            <p>{{ estores_estore.category }}</p>
+
+
+        </div>
+    </section>
+
+
+    <section class="line Store-line">
+        <hr style="width:20%; border-radius: 8px; height:5px; background-color:#008dff; margin-left: auto; margin-right: auto; color: #008dff;">
+    </section>
+
+    <section class="cat-menu">
+        <nav>
+            <label for="btwn" class="btn-D">Select Category
+            <span class="fas fa-caret-down"></span>
+        </label>
+        <input class="tick" type = "checkbox" id="btwn">
+         <ul class="menu-bar">
+
+            <li>
+                <label for="btwn-2" class="second-menu">Electronics
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                <input class="tick" type = "checkbox" id="btwn-2">
+
+                <ul>
+                    <li><a href="#">Phones and Tablets</a></li>
+                    <li><a href="#">Watches</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </li>
+
+         </ul>
+        </nav>
+
+    </section>
+
+    <section id="product1" class="featured">
+
+        <div class="pro-container">
+            {% for item in other_services %}
+
+            <div class="pro">
+                <img src="{{ item.image1.url }}" alt="">
+                <div class="label storelabel">
+                    <div class="pro-info">
+                        <a href="{% url 'store_information:product_estore' item.id %}"><h3>{{ item.product_name }}</h3></a>
+                        <h2>{{ item.price }}</h2>
+                    </div>
+                    <div class="store-wish">
+                        <span  class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    </div>
+
+                </div>
+
+            </div>
+            {% empty %}
+                <li>No items have been added as of yet</li>
+            {% endfor %}
+        </div>
+
+
+
+
+
+    </section>
+
+    <footer class="featured foot-det">
+        <div class="col">
+            <img class="logor" src="{% static '/media/main-logo.png' %}" alt="">
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="{% url 'store_information:about_us' %}">About Us</a>
+            <a href="{% url 'store_information:terms_conditions' %}">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="{% url 'account:login' %}">Sign In</a>
+            <a href="#">My Wishlist</a>
+            <a href="{% url 'store_information:about_us' %}">Help</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>Coming soon</p>
+            <div class="row app">
+                <!-- This is the buttons for downoloading our app-->
+                <img src="{% static 'media/undraw_under_construction_-46-pa.svg' %}" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row pay">
+                <!-- Payment gateways i.e Ecocash -->
+               <ul>
+                   <li>Ecocash</li>
+                   <li>VISA Mastercard</li>
+                   <li>Direct Bank Transfer</li>
+               </ul>
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @SquareMarket. All rights reserved.</p>
+        </section>
+
+    </footer>
+    <script src="{% static 'js/main.js' %}"></script>
+
+{% endblock conntent %}
+
+</body>
+</html>

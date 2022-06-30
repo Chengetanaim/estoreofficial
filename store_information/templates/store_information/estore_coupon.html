@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Estore </title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+{% block conntent %}
+    <section class="logoRS">
+        <img class="logoR" src="{% static '/media/main-logo.png' %}" alt="">
+    </section>
+
+    <section class="top-form-1">
+        <div class="top-form-2 Es">
+          <div class="line">
+              <hr style="width:20%; border-radius: 8px; height:5px; background-color:#008dff; margin-left: auto; margin-right: auto; color: #008dff;">
+          </div>
+          <div class="line-heading E">
+              <h2>Open Your Own E-Store</h2>
+              <p>Packages offered below are according to the number of slots <br> that your store can have. These packages are paid monthly and you can always upgrade whenever you want.</p>
+              <h3>Select Package</h3>
+          </div>
+
+          <div class="packages">
+              <div class="package" onclick="window.location.href='#';">
+                  <h3>Starter</h3>
+                  <h1>$5</h1>
+                  <ul>
+                      <li>per month</li>
+                      <li>10 product slots</li>
+                  </ul>
+              </div>
+
+              <div class="package" onclick="window.location.href='#';">
+                  <h3>Compact</h3>
+                  <h1>$10</h1>
+                  <ul>
+                      <li>per month</li>
+                      <li>20 product slots</li>
+                      <li>1 slots on Hot Deals page for free </li>
+                  </ul>
+              </div>
+
+              <div class="package" onclick="window.location.href='#';">
+                  <h3>Compact Plus</h3>
+                  <h1>$18</h1>
+                  <ul>
+                      <li>per month</li>
+                      <li>40 product slots</li>
+                      <li>2 slots on Hot Deals page for free </li>
+                  </ul>
+              </div>
+
+              <div class="package" onclick="window.location.href='#';">
+                  <h3>Premium</h3>
+                  <h1>$25</h1>
+                  <ul>
+                      <li>per month</li>
+                      <li>Unlimited product slots</li>
+                      <li>2 slots on Hot Deals page for free </li>
+                      <li>1 slot on Weekly deals section for free </li>
+                  </ul>
+              </div>
+          </div>
+
+               <div class="coupon">
+                  <form action="{% url 'estore_coupon_results' %}" method="get">
+
+                           <input name="q" type="text" placeholder="Enter Coupon Code">
+                          <button class="Coupon-E" value="submit">
+                            <h4>Enter</h4>
+                        </button>
+
+                  </form>
+               </div>
+
+
+
+        </div>
+
+    </section>
+
+    <footer class="featured foot-det">
+        <div class="col">
+            <img class="logor" src="{% static '/media/main-logo.png' %}" alt="">
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="{% url 'store_information:about_us' %}">About Us</a>
+            <a href="{% url 'store_information:terms_conditions' %}">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="{% url 'account:profile' %}">Sign In</a>
+            <a href="{% url 'store_information:wishlist' %}">My Wishlist</a>
+            <a href="{% url 'store_information:about_us' %}">Help</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>Coming soon</p>
+            <div class="row app">
+                <!-- This is the buttons for downoloading our app-->
+                <img src="{% static '/media/undraw_under_construction_-46-pa.svg' %}" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row pay">
+                <!-- Payment gateways i.e Ecocash -->
+               <ul>
+                   <li>Ecocash</li>
+                   <li>VISA Mastercard</li>
+                   <li>Direct Bank Transfer</li>
+               </ul>
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @SquareMarket. All rights reserved.</p>
+        </section>
+
+    </footer>
+{% endblock conntent %}
+</body>
+</html>

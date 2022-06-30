@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+
+<body>
+{% block conntent %}
+
+
+   <header class="H1">
+        <image class="logo" src="{% static '/media/main-logo.png' %}"></image>
+         <div class="search-nav-bar">
+            <form action="{% url 'search_results' %}" method="get">
+                <input name="q" type="text" placeholder="Search...">
+            </form>
+
+        </div>
+
+        {% if request.user.is_authenticated %}
+
+            <div class="nav-tab">
+                <div class="sml-search">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="user"onclick="window.location.href='{% url 'account:profile' %}';">
+                    <img src="{{ request.user.profile_pic.url }}" alt="">
+                </div>
+             </div>
+
+            <div class="sml-nav">
+                <div class="sml-search">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+
+                <div class="sml-nav-2">
+
+                    <button class="mobile-toggle"
+                        aria-controls="pry-nav" aria-expanded="false">
+                        <span class="sr-only">Menu</span>
+                    </button>
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'account:login' %}" class="btn">Sign In</a>
+        {% endif %}
+
+
+    </header>
+
+    <header class="H2-container">
+
+        <nav class="nav-bar-bar">
+
+            <ul>
+
+                <li><a href="{% url 'store_information:index' %}">Home</a></li>
+                <li><a href="{% url 'store_information:about_us' %}">About Us</a></li>
+                <li><a href="{% url 'store_information:gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'store_information:estores' %}">E Store</a></li>
+                <li><a href="{% url 'store_information:hotdeals' %}">Hot Deals</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="container">
+        <h1>#GALLERY</h1>
+        <p>Look at the products offered by our vendors<br>at the comfort of your own home</p>
+    </section>
+
+       <section class="cat-menu">
+        <nav>
+            <label for="btwn" class="btn-D">Categories
+            <span class="fas fa-caret-down"></span>
+        </label>
+        <input class="tick" type = "checkbox" id="btwn">
+         <ul class="menu-bar">
+             <li>
+            <label for="btwn-1" class="first-menu">Clothing
+                <span class="fas fa-caret-down"></span>
+            </label>
+            <input class="tick" type = "checkbox" id="btwn-1">
+                        <ul>
+                <li><a href="{% url 'sort:clothing' %}">Men Collection</a></li>
+                <li><a href="{% url 'sort:clothing' %}">Ladies Collection</a></li>
+                <li><a href="{% url 'sort:clothing' %}">Kids Collection</a></li>
+            </ul>
+            </li>
+            <li>
+                <label for="btwn-2" class="second-menu">Electronics
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                <input class="tick" type = "checkbox" id="btwn-2">
+
+                <ul>
+                    <li><a href="{% url 'sort:electronics' %}">Phones and Tablets</a></li>
+                    <li><a href="{% url 'sort:electronics' %}">Watches</a></li>
+                    <li><a href="{% url 'sort:electronics' %}">Laptops</a></li>
+                    <li><a href="{% url 'sort:electronics' %}">Accessories</a></li>
+                </ul>
+            </li>
+            <li>
+                <label for="btwn-3" class="third-menu">Homeware
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                <input class="tick" type = "checkbox" id="btwn-3">
+                 <ul>
+                    <li><a href="{% url 'sort:homeware' %}">Lounge and Dining</a></li>
+                    <li><a href="{% url 'sort:homeware' %}">Kitchen</a></li>
+                    <li><a href="{% url 'sort:homeware' %}">Bedroom</a></li>
+                    <li><a href="{% url 'sort:homeware' %}">Bathroom</a></li>
+                </ul>
+            </li>
+         </ul>
+        </nav>
+
+    </section>
+
+    <section id="product1" class="featured">
+
+        <div class="pro-container">
+            {% for item in electronics %}
+            <div class="pro">
+
+                    <img src="{{ item.image1.url }}">
+
+
+                <div class="label">
+                    <a href="{% url 'store_information:gallerie' item.id %}"><h3>{{ item.product_name }}</h3></a>
+                    <h2>{{ item.price }}</h2>
+                    <div class="Location">
+                        <i class="fas fa-map-marker-alt">{{ item.location }}</i>
+                    </div>
+                </div>
+
+            </div>
+            {% empty %}
+                <li>No items have been added yet.</li>
+            {% endfor %}
+
+        </div>
+
+
+    </section>
+
+
+
+    <section id="pagination" class="featured">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#"><i class="fas fa-chevron-right"></i></a>
+    </section>
+
+    <footer class="featured">
+        <div class="col">
+            <img class="logor" src="{% static '/media/main-logo.png' %}" alt="">
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="{% url 'store_information:about_us' %}">About Us</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="#">Sign In</a>
+            <a href="#">My Wishlist</a>
+            <a href="{% url 'store_information:about_us' %}">Help</a>
+            <a href="#">Men Collection</a>
+            <a href="#">Women Collection</a>
+            <a href="#">Kids Collection</a>
+            <a href="#">Accessories</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>For easier access of our content</p>
+            <div class="row">
+                <!-- This is the buttons for downoloading our app-->
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row">
+                <!-- Payment gateways i.e Ecocash -->
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @SquareMarket. All rights reserved.</p>
+        </section>
+
+    </footer>
+
+
+    <script src="{% static '/js/main.js' %}"></script>
+
+
+
+
+{% endblock conntent %}
+</body>
+</html>

@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/apply.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+
+  
+    
+    <title>SquareMarket</title>
+</head>
+
+<body>
+    <section class="logoRS">
+        <img class="logoR" src="{% static 'media/main-logo.png' %}" alt="">
+    </section>
+
+    <section class="search-here">
+        <div class="search-here-tag">
+            <h1>Search Here</h1>
+        <p>We are here to help you search for any product</p>
+        </div>
+        
+        <div class="search-field">
+            <input type="text" placeholder="What are you looking for?">
+            <a href=""><i class="fas fa-search"></i></a>
+        </div>
+    </section>
+
+    <div class="search-pic">
+        <img src="{% static 'media/undraw_location_search_re_ttoj.svg' %}" alt="">
+    </div>
+
+    <section class="last-viewed">
+        <div class="search-here-tag">
+            <h1>Last Viewed</h1>
+        </div>
+    </section>
+        
+    <section id="product1" class="featured product2">
+        <div class="pro-container">
+            <div class="pro">
+                <img src="images/centiwatch.jpg" alt="">
+                <div class="label">
+                    <h3>Apple Watch</h3>
+                    <h2>$55</h2>
+                    <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    <div class="Location">
+                        <h3><span> <i class="fas fa-map-marker-alt"></i></span>Harare</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro"onclick="window.location.href='sproduct.html';">
+                <img src="images/ipad1.jpg" alt="">
+                <div class="label">
+                    <h3>Ipad Pro 11</h3>
+                    <h2>$850</h2>
+                    <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    <div class="Location">
+                        <h3><span> <i class="fas fa-map-marker-alt"></i></span>Harare</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/j1green.jpg" alt="">
+                <div class="label">
+                    <h3>Turquoise Jordan 1</h3>
+                    <h2>$60</h2>
+                    <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    <div class="Location">
+                        <h3><span> <i class="fas fa-map-marker-alt"></i></span>Kwekwe</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="images/padpro.jpg" alt="">
+                <div class="label">
+                    <h3>Ipad Pro 12.9</h3>
+                    <h2>$1 200</h2>
+                    <span class="add-wishlist"><i class="fas fa-cart-plus"></i></span>
+                    <div class="Location">
+                        <h3><span> <i class="fas fa-map-marker-alt"></i></span>Harare</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+   
+    <footer class="featured foot-det">
+        <div class="col">
+            <img class="logor" src="images/Logo2.png" alt="">
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="AboutUs.html">About Us</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="MyAccount.html">Sign In</a>
+            <a href="wishlist.html">My Wishlist</a>
+            <a href="AboutUs.html">Help</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>Coming soon</p>
+            <div class="row app">
+                <!-- This is the buttons for downoloading our app-->
+                <img src="{% static 'media/undraw_under_construction_-46-pa.svg' %}" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row pay">
+                <!-- Payment gateways i.e Ecocash -->
+               <ul>
+                   <li>Ecocash</li>
+                   <li>VISA Mastercard</li>
+                   <li>Direct Bank Transfer</li>
+               </ul>
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @Warehouse. All rights reserved.</p>
+        </section>
+        
+    </footer>
+    <script src="https://kit.fontawesome.com/e81d17d39f.js" crossorigin="anonymous"></script>
+</body>
+</html>

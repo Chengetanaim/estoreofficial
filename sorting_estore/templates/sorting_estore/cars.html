@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+
+{% block conntent %}
+
+    <header class="H1">
+        <image class="logo" src="{% static '/media/main-logo.png' %}"></image>
+        <div class="search-nav-bar">
+            <form action="{% url 'store_search_results' %}" method="get">
+                <input name="q" type="text" placeholder="Search...">
+            </form>
+        </div>
+
+
+        {% if request.user.is_authenticated %}
+
+            <div class="nav-tab">
+                <div class="sml-search">
+                    <a href="{% url 'estore_mobile' %}"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="user"onclick="window.location.href='{% url 'account:profile' %}';">
+                    <img src="{{ request.user.profile_pic.url }}" alt="">
+                </div>
+             </div>
+
+            <div class="sml-nav">
+                <div class="sml-search">
+                    <a href="{% url 'estore_mobile' %}"><i class="fas fa-search"></i></a>
+                </div>
+
+                <div class="sml-nav-2">
+
+                    <button class="mobile-toggle"
+                        aria-controls="pry-nav" aria-expanded="false">
+                        <span class="sr-only">Menu</span>
+                    </button>
+                    <nav>
+                        <ul id="pry-nav" data-visible="false" class="pry-nav">
+                            <div class="profile-acc">
+                                <img src="{{ request.user.profile_pic.url }}" alt="">
+                                <div class="profile-acc-details">
+                                    <h2><span><i class="fas fa-user"></i></span>{{ request.user.username }}</h2>
+                                    <a href="{% url 'account:profile' %}">My Dashboard</a>
+                                </div>
+                            </div>
+                            <li><a href="{% url 'store_information:index' %}"><span><i class="fas fa-home"></i></span> Home</a></li>
+                            <li><a href="{% url 'store_information:gallery' %}"><span><i class="fas fa-image"></i></span> Gallery</a></li>
+                            <li><a href="{% url 'store_information:about_us' %}"><span><i class="fas fa-users"></i></span> About Us</a></li>
+                            <li><a href="{% url 'store_information:estores' %}"><span><i class="fas fa-store"></i></span> E Stores</a></li>
+                            <li><a href="{% url 'store_information:hotdeals' %}"><span> <i class="fas fa-percent"></i></span> Hot Deals</a></li>
+                            <li><a href="{% url 'account:logout' %}"><span> <i class="fas fa-sign-out-alt"></i></span> Log Out</a></li>
+                         </ul>
+                    </nav>
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'account:login' %}" class="btn">Sign In</a>
+        {% endif %}
+
+
+
+    </header>
+
+    <header class="H2-container">
+        <nav class="nav-bar-bar">
+            <ul>
+                <li><a href="{% url 'store_information:index' %}">Home</a></li>
+                <li><a href="{% url 'store_information:about_us' %}">About Us</a></li>
+                <li><a href="{% url 'store_information:gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'store_information:estores' %}">E Store</a></li>
+                <li><a href="{% url 'store_information:hotdeals' %}">Hot Deals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <section class="container">
+            <h1>#E-Stores</h1>
+            <p>Visit our online stores by our different vendors</p>
+            <a href="{% url 'store_information:estore_coupon' %}" class="btn-S">Create E-Store</a>
+        </section>
+    <section id="stores" class="featured">
+        <div class="container-stores">
+        {% for estore in cars %}
+        <div class="store-card">
+
+                 <div class="store-card-top">
+
+                    <div class="store-details">
+                            <h2 class="store">{{ estore.store_name }}</h2>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>{{ estore.location }}</h3>
+                        </div>
+                    </div>
+
+                    <div class="store-pro">
+                        <img src="{{ estore.profile_pic.url }}" alt="">
+                    </div>
+
+                </div>
+                <div class="store-card-bottom">
+                    <a href="{% url 'store_information:estores_estore' estore.id %}" class="btn-St">Visit Store</a>
+                </div>
+        </div>
+        {% empty %}
+            <li>No estores have been created yet.</li>
+        {% endfor %}
+        </div>
+
+
+    </section>
+
+
+    <footer class="featured">
+        <div class="col">
+            <image class="logo" src="{% static '/media/main-logo.png' %}"></image>
+            <h3>Contact</h3>
+            <p><strong>WhatsApp :</strong> +263 77 684 2894</p>
+            <p><strong>Phone : </strong>  +263 77 635 0319 </p>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="{% url 'store_information:about_us' %}">About Us</a>
+            <a href="{% url 'store_information:terms_conditions' %}">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            <a href="#">Sign In</a>
+            <a href="{% url 'store_information:wishlist' %}">My Wishlist</a>
+            <a href="{% url 'store_information:about_us' %}">Help</a>
+        </div>
+
+        <div class="col install">
+            <h3>Install Our App</h3>
+            <p>For easier access of our content</p>
+            <div class="row">
+                <!-- This is the buttons for downoloading our app-->
+            </div>
+            <p>Secured Payment Gateways</p>
+            <div class="row">
+                <!-- Payment gateways i.e Ecocash -->
+            </div>
+        </div>
+
+
+        <section class="line">
+            <p>Copyright 2022 @SquareMarket. All rights reserved.</p>
+        </section>
+
+    </footer>
+{% endblock conntent %}
+
+</body>
+</html>
